@@ -1,0 +1,50 @@
+/* 
+
+Styling for site header 
+
+*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin: 0 4%;
+  border-bottom: 1px solid #1b1b1b9d;
+
+  .logo {
+    margin: 0;
+    display: flex;
+  }
+
+  .logo__anchor {
+    color: #d3914b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .icons__single {
+    all: unset;
+    display: flex;
+    align-items: center;
+    color: #d3914b;
+    cursor: pointer;
+
+    i {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .icons_single--nominations-toggle {
+      display: none
+    }
+  }
+}

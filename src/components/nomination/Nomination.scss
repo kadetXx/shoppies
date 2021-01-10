@@ -1,0 +1,19 @@
+.movie.nomination {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+
+  .movie__image {
+    width: 30%;
+  }
+
+  .movie__details {
+    width: 68%;
+
+    &__title {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+/* 
+  styling for movie component
+*/
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  width: 46%;
+  margin-bottom: 2.5rem;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    width: 31%;
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .movie__details {
+    &__title {
+      margin: 1rem 0 0.5rem;
+      font-weight: 500;
+      padding: 2%;
+      -webkit-text-stroke: 0.4px #d3914b;
+    }
+
+    &__release-year {
+      margin: 0.2rem 0;
+      font-size: 0.9rem;
+      padding: 2%;
+
+      i {
+        color: #d3914b;
+      }
+    }
+  }
+
+  .nominate-button {
+    width: 100%;
+    margin: 1rem 0 0;
+    background: darken($color: #d3914b, $amount: 5);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 0;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    font-size: 0.9rem;
+
+    i {
+      color: #fff;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .nominate-button.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: darkslategray;
+  }
+}
