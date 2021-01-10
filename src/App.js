@@ -128,7 +128,7 @@ function App() {
                 : "movies__section--nominations--hide"
             }`}
           >
-            <h3>Nominations</h3>
+            <h3>Your Nominations</h3>
 
             <div className='movies__section__listing'>
               {nominations.map((movie) => (
