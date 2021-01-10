@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/scss/App.scss";
 import Header from "./components/header/Header";
 import Movie from "./components/movie/Movie";
@@ -10,23 +10,47 @@ function App() {
   const [nominations, setNominations] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  useEffect(() => {
+    const storedNominations = localStorage.getItem("shoppiesNominations");
+
+    storedNominations !== null
+      ? setNominations(JSON.parse(storedNominations))
+      : localStorage.setItem(
+          "shoppiesNominations",
+          JSON.stringify(nominations)
+        );
+
+    // eslint-disable-next-line
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://www.omdbapi.com/?s=${searchTerm}&page=1-10&apikey=4019cc8`)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.Search));
+    if (e.target.value === "") {
+      fetch(`http://www.omdbapi.com/?s=${searchTerm}&page=1-10&apikey=4019cc8`)
+        .then((res) => res.json())
+        .then((data) => setMovies(data.Search));
+    }
   };
 
   const nominateMovie = (movie) => {
-    setNominations([...nominations, movie]);
+    const newMoviesArray = [...nominations, movie];
+    setNominations(newMoviesArray);
+
+    // add movie to loaclstorage
+    localStorage.setItem("shoppiesNominations", JSON.stringify(newMoviesArray));
   };
 
   const undoNomination = (movie) => {
     const currentNominations = nominations.filter(
       (item) => item.imdbID !== movie.imdbID
     );
+
     setNominations(currentNominations);
+    localStorage.setItem(
+      "shoppiesNominations",
+      JSON.stringify(currentNominations)
+    );
   };
 
   return (
