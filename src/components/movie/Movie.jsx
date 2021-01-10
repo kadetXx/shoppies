@@ -14,9 +14,9 @@ function Movie({ movieData, nominateMovie, nominations }) {
     const check = checkNominationStatus();
 
     if (check) {
-      return "nominate-button disabled";
+      return "nominate-button movie-btn disabled";
     } else {
-      return "nominate-button";
+      return "nominate-button movie-btn";
     }
   };
 

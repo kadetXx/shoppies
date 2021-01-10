@@ -39,10 +39,10 @@ function App() {
   };
 
   const nominateMovie = (movie) => {
-    const newMoviesArray = [...nominations, movie];
-    setNominations(newMoviesArray);
+    const newMoviesArray = [movie, ...nominations];
+    setNominations(newMoviesArray)
 
-    // add movie to loaclstorage
+    // add movie to loacalstorage
     localStorage.setItem("shoppiesNominations", JSON.stringify(newMoviesArray));
   };
 
