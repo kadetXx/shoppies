@@ -36,12 +36,11 @@ function Movie({ movieData, nominateMovie, nominations }) {
         >
           {checkNominationStatus() ? (
             <React.Fragment>
-              Nominated  <i class="far fa-check-circle"></i>
-              {/* <i className="material-icons">done</i> */}
+              Nominated <i class='far fa-check-circle'></i>
             </React.Fragment>
           ) : (
             <React.Fragment>
-              Nominate <i className='fas fa-award'></i>
+              Nominate 
             </React.Fragment>
           )}
         </button>

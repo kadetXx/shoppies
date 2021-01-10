@@ -1,11 +1,11 @@
-/* 
-  styling for movie component
-*/
+@import "../../assets/scss/variables";
+
+//styling for movie component
 
 .movie {
   display: flex;
   flex-direction: column;
-  color: #fff;
+  color: $white;
   width: 46%;
   margin-bottom: 2.5rem;
   justify-content: space-between;
@@ -27,7 +27,7 @@
       margin: 1rem 0 0.5rem;
       font-weight: 500;
       padding: 2%;
-      -webkit-text-stroke: 0.4px #d3914b;
+      -webkit-text-stroke: 0.4px $primary;
     }
 
     &__release-year {
@@ -36,7 +36,7 @@
       padding: 2%;
 
       i {
-        color: #d3914b;
+        color: $primary;
       }
     }
   }
@@ -44,8 +44,8 @@
   .nominate-button {
     width: 100%;
     margin: 1rem 0 0;
-    background: darken($color: #d3914b, $amount: 5);
-    color: #fff;
+    background: darken($color: $primary, $amount: 5);
+    color: $white;
     border: none;
     padding: 0.7rem 0;
     border-radius: 2px;
@@ -56,7 +56,7 @@
     font-size: 0.9rem;
 
     i {
-      color: #fff;
+      color: $white;
       font-size: 1rem;
       margin-left: 0.5rem;
     }
@@ -65,6 +65,6 @@
   .nominate-button.disabled {
     pointer-events: none;
     cursor: not-allowed;
-    background-color: darkslategray;
+    background-color: $outlinedark;
   }
 }

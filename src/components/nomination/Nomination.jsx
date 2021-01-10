@@ -13,12 +13,7 @@ function Nomination({ movieData, undoNomination }) {
           <span>Released:</span> <i>{movieData.Year} </i>
         </p>
       </div>
-      <button
-          className='nominate-button'
-          onClick={() => undoNomination(movieData)}
-        >
-          Remove <i class="fas fa-minus"></i>
-        </button>
+      <button className='nominate-button' onClick={() => undoNomination(movieData)}>Remove</button>
     </article>
   );
 }

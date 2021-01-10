@@ -1,3 +1,6 @@
+@import "config";
+@import "variables";
+
 /*
 
 Styling for main component
@@ -17,7 +20,7 @@ main {
 
       @media screen and (min-width: 768px) {
         flex-grow: 1;
-        border-right: 1px solid #1b1b1b9d;
+        border-right: 1px solid $outlinedark;
       }
 
       form {
@@ -29,7 +32,7 @@ main {
         align-items: center;
         padding: 1rem;
         box-sizing: border-box;
-        border: 1px solid #2c2721;
+        border: 1px solid $outlinemedium;
       }
 
       i {
@@ -43,7 +46,7 @@ main {
         background-color: transparent;
         border: none;
         outline: none;
-        color: #fff;
+        color: $white;
       }
     }
 
@@ -51,7 +54,7 @@ main {
       margin-bottom: 2rem;
 
       span {
-        color: #d3914b;
+        color: $primary;
       }
     }
 
@@ -64,11 +67,12 @@ main {
     &__section--nominations {
       position: absolute;
       left: 0;
-      background-color: #fff;
+      background-color: $black;
       width: 100%;
       min-height: 100vh;
       padding: 1rem 4%;
       transform: translateX(101vw);
+      box-sizing: border-box;
 
       @media screen and (min-width: 768px) {
         width: 40%;

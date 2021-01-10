@@ -1,0 +1,32 @@
+@import "./variables";
+
+// improt fonts
+
+@font-face { 
+  font-family: 'shoppies';
+  src: url('../fonts/SFUIText-Regular.woff')  format('woff')
+}
+
+@font-face {
+  font-family: 'shoppies-light';
+  src: url('../fonts/SFUIText-Light.woff')  format('woff')
+}
+
+@font-face {
+  font-family: 'shoppies-bold';
+  src: url('../fonts/SFUIText-Bold.woff')  format('woff')
+}
+
+
+* {
+  font-family: 'shoppies';
+}
+
+body {
+  background-color: $black;
+  color: $white;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+

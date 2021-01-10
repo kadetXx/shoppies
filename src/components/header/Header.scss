@@ -1,8 +1,6 @@
-/* 
+@import "../../assets/scss/variables";
 
-Styling for site header 
-
-*/
+// Styling for site header 
 
 header {
   display: flex;
@@ -10,7 +8,7 @@ header {
   align-items: center;
   padding: 1.5rem 0;
   margin: 0 4%;
-  border-bottom: 1px solid #1b1b1b9d;
+  border-bottom: 1px solid $outlinedark;
 
   .logo {
     margin: 0;
@@ -18,7 +16,7 @@ header {
   }
 
   .logo__anchor {
-    color: #d3914b;
+    color: $primary;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -34,7 +32,7 @@ header {
     all: unset;
     display: flex;
     align-items: center;
-    color: #d3914b;
+    color: $primary;
     cursor: pointer;
 
     i {
