@@ -6,9 +6,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
   margin: 0 4%;
   border-bottom: 1px solid $outlinedark;
+  height: 4rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 1.5rem 0;
+    height: auto;
+  }
 
   .logo {
     margin: 0;

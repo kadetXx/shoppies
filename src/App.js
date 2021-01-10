@@ -69,7 +69,7 @@ function App() {
   };
 
   return (
-    <div className='App'>
+    <div className='App' id={mobileSidebar ? 'position-fixed' : ''}>
       <Header
         mobileSidebar={mobileSidebar}
         toggleMobileSidebar={toggleMobileSidebar}

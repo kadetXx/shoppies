@@ -77,12 +77,14 @@ main {
     }
 
     &__section--nominations {
-      position: absolute;
+      position: fixed;
+      height: calc(100vh - 6rem);
+      overflow-y: auto;
       left: 0;
       background-color: $black;
       width: 100%;
       min-height: 100%;
-      padding: 1rem 4%;
+      padding: 1rem 4% 10rem;
       transform: translateX(101vw);
       box-sizing: border-box;
 
