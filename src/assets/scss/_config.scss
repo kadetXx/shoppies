@@ -2,27 +2,29 @@
 
 // improt fonts
 
-@font-face { 
-  font-family: 'shoppies';
-  src: url('../fonts/SFUIText-Regular.woff')  format('woff')
+@font-face {
+  font-family: "shoppies";
+  src: url("../fonts/SFUIText-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'shoppies-light';
-  src: url('../fonts/SFUIText-Light.woff')  format('woff')
+  font-family: "shoppies-light";
+  src: url("../fonts/SFUIText-Light.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'shoppies-bold';
-  src: url('../fonts/SFUIText-Bold.woff')  format('woff')
+  font-family: "shoppies-bold";
+  src: url("../fonts/SFUIText-Bold.woff") format("woff");
 }
-
 
 * {
-  font-family: 'shoppies';
+  font-family: "shoppies";
 }
 
-html, body, #root, .app {
+html,
+body,
+#root,
+.App {
   height: 100%;
 }
 
@@ -33,7 +35,15 @@ body {
   overflow-x: hidden;
 }
 
-#position-fixed {
-  position: fixed;
+.App {
+  display: flex;
+  flex-direction: column;
 }
 
+#no-scroll {
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}

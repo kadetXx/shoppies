@@ -1,0 +1,19 @@
+@import "../../assets/scss/variables";
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4%;
+  border-top: 1px solid $outlinedark;
+  color: lighten($color: $outlinedark, $amount: 40);
+
+  a {
+    font-size: 2rem;
+    color: lighten($color: $outlinedark, $amount: 30);
+
+    &:hover {
+      color: lighten($color: $outlinedark, $amount: 70);
+    }
+  }
+}

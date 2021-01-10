@@ -9,6 +9,10 @@ Styling for main component
 
 main {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 
   .movies {
     display: flex;
@@ -94,8 +98,27 @@ main {
         height: auto;
       }
 
-      h3 {
+      &__title {
         margin-bottom: 2rem;
+      }
+
+      &__empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 4rem;
+
+        i {
+          font-size: 10rem;
+          opacity: 0.5;
+          color: $outlinedark;
+        }
+
+        p {
+          color: lighten($color: $outlinedark, $amount: 5);
+          text-align: center;
+        }
       }
     }
 

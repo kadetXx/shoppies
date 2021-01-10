@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./assets/scss/App.scss";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import Movie from "./components/movie/Movie";
 import Nomination from "./components/nomination/Nomination";
 
@@ -69,7 +70,7 @@ function App() {
   };
 
   return (
-    <div className='App' id={mobileSidebar ? 'position-fixed' : ''}>
+    <div className='App' id={mobileSidebar ? "no-scroll" : ""}>
       <Header
         mobileSidebar={mobileSidebar}
         toggleMobileSidebar={toggleMobileSidebar}
@@ -128,7 +129,16 @@ function App() {
                 : "movies__section--nominations--hide"
             }`}
           >
-            <h3>Your Nominations</h3>
+            <h3 className='movies__section--nominations__title'>
+              Your Nominations
+            </h3>
+
+            {nominations.length === 0 && (
+              <div className='movies__section--nominations__empty'>
+                <i class='fas fa-ghost'></i>
+                <p>Empty!</p>
+              </div>
+            )}
 
             <div className='movies__section__listing'>
               {nominations.map((movie) => (
@@ -141,6 +151,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <Footer />
       </main>
     </div>
   );
