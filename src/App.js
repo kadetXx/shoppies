@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./assets/scss/App.scss";
 import Header from "./components/header/Header";
 import Movie from "./components/movie/Movie";
@@ -9,6 +9,8 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [nominations, setNominations] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const top = useRef();
 
   useEffect(() => {
     const storedNominations = localStorage.getItem("shoppiesNominations");
@@ -26,24 +28,32 @@ function App() {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    setSearchTerm(e.target.value)
+    setSearchTerm(e.target.value);
 
-    if (e.target.value.length >= 3 ) {
+    if (e.target.value.length >= 3) {
       console.log(searchTerm.length);
-      fetch(`http://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=4019cc8`)
+      fetch(
+        `http://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=4019cc8`
+      )
         .then((res) => res.json())
         .then((data) => setMovies(data.Search || []));
     } else {
-      setMovies([])
+      setMovies([]);
     }
   };
 
   const nominateMovie = (movie) => {
     const newMoviesArray = [movie, ...nominations];
-    setNominations(newMoviesArray)
+    setNominations(newMoviesArray);
 
     // add movie to loacalstorage
     localStorage.setItem("shoppiesNominations", JSON.stringify(newMoviesArray));
+
+    nominations.length === 4 &&
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
   };
 
   const undoNomination = (movie) => {
@@ -64,10 +74,19 @@ function App() {
         mobileSidebar={mobileSidebar}
         toggleMobileSidebar={toggleMobileSidebar}
       />
-      <main>
+      <main ref={top}>
         <section className='movies'>
           <div className='movies__section movies__section--listings'>
-            <form onSubmit={e => e.preventDefault()}>
+            {nominations.length === 5 && (
+              <div className='banner'>
+                <p>
+                  You've nominated five movies for the shoppies awards! You
+                  rock!{" "}
+                </p>
+              </div>
+            )}
+
+            <form onSubmit={(e) => e.preventDefault()}>
               <label>
                 <i className='fa fa-search'></i>
                 <input
