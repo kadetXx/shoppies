@@ -33,7 +33,7 @@ function App() {
     if (e.target.value.length >= 3) {
       console.log(searchTerm.length);
       fetch(
-        `http://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=4019cc8`
+        `http://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((data) => setMovies(data.Search || []));
