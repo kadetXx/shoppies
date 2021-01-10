@@ -23,13 +23,18 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
 
-    if (e.target.value === "") {
-      fetch(`http://www.omdbapi.com/?s=${searchTerm}&page=1-10&apikey=4019cc8`)
+    setSearchTerm(e.target.value)
+
+    if (e.target.value.length >= 3 ) {
+      console.log(searchTerm.length);
+      fetch(`http://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=4019cc8`)
         .then((res) => res.json())
-        .then((data) => setMovies(data.Search));
+        .then((data) => setMovies(data.Search || []));
+    } else {
+      setMovies([])
     }
   };
 
@@ -62,7 +67,7 @@ function App() {
       <main>
         <section className='movies'>
           <div className='movies__section movies__section--listings'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={e => e.preventDefault()}>
               <label>
                 <i className='fa fa-search'></i>
                 <input
@@ -70,7 +75,8 @@ function App() {
                   type='text'
                   name='search'
                   placeholder='Search movies'
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={searchTerm}
+                  onChange={handleSearch}
                 />
               </label>
             </form>

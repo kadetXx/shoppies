@@ -22,6 +22,10 @@
   font-family: 'shoppies';
 }
 
+html, body, #root, .app {
+  height: 100%;
+}
+
 body {
   background-color: $black;
   color: $white;
