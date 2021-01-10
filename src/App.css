@@ -1,38 +1,26 @@
-.App {
-  text-align: center;
+
+
+@font-face {
+  font-family: 'shoppies';
+  src: url('./assets/fonts/SFUIText-Regular.woff')  format('woff')
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'shoppies-light';
+  src: url('./assets/fonts/SFUIText-Light.woff')  format('woff')
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'shoppies-bold';
+  src: url('./assets/fonts/SFUIText-Bold.woff')  format('woff')
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+* {
+  font-family: 'shoppies';
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  font-family: 'shoppies';
 }
