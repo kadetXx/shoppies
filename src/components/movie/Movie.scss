@@ -54,7 +54,7 @@
     align-items: center;
     justify-content: center;
     outline: none;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     overflow: hidden;
     position: relative;
     transition: background 0.2s linear;
@@ -69,8 +69,17 @@
 
   .nominate-button.movie-btn {
     &:hover {
-      background-color: darken($color: $primary, $amount: 20);
-      transition: all 0.2s linear;
+      animation: up 0.5s 1;
+
+      @keyframes up {
+        50% {
+          transform: translateY(5px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
     }
   }
 
