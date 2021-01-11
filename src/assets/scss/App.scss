@@ -21,13 +21,18 @@ Styling for main component
 
   .banner {
     display: flex;
-    background: url("../img/celebrate.gif");
-    padding: 1rem 0;
+    align-items: center;
+    background: darken($color: $primary, $amount: 10);
+    color: $white;
+    padding: 0.5rem 1rem;
     margin: 2rem 0;
-    font-size: 1.2rem;
+    font-weight: 200;
 
-    @media screen and (min-width: 768px) {
-      font-size: 1.5rem;
+
+    i {
+      margin-right: 0.5rem;
+      color: $white;
+      font-size: 1.25rem;
     }
   }
 
@@ -103,7 +108,16 @@ Styling for main component
     }
 
     .nominations__heading {
+      margin-bottom: 0.5rem;
+    }
+
+    .nominations__limit {
       margin-bottom: 2rem;
+      color: lighten($color: $outlinemedium, $amount: 60);
+
+      strong {
+        color: $primary;
+      }
     }
 
     .nominations__empty {

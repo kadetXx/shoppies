@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/scss/App.scss";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -10,18 +10,25 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [nominations, setNominations] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const top = useRef();
+  const [limit, setLimit] = useState(5);
 
   useEffect(() => {
     const storedNominations = localStorage.getItem("shoppiesNominations");
 
+    // fetch nominations from local storage
     storedNominations !== null
       ? setNominations(JSON.parse(storedNominations))
       : localStorage.setItem(
           "shoppiesNominations",
           JSON.stringify(nominations)
         );
+
+    // fetch limit from local storage
+    const storedLimit = localStorage.getItem("nominationLimit");
+
+    storedLimit === null
+      ? localStorage.setItem("nominationLimit", 5)
+      : setLimit(Number(storedLimit));
 
     // eslint-disable-next-line
   }, []);
@@ -32,7 +39,9 @@ function App() {
     setSearchTerm(e.target.value);
 
     if (e.target.value.length >= 3) {
-      fetch(`https://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=${process.env.REACT_APP_API_KEY}`)
+      fetch(
+        `https://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=${process.env.REACT_APP_API_KEY}`
+      )
         .then((res) => res.json())
         .then((data) => setMovies(data.Search || []));
     } else {
@@ -47,7 +56,13 @@ function App() {
     // add movie to loacalstorage
     localStorage.setItem("shoppiesNominations", JSON.stringify(newMoviesArray));
 
-    nominations.length === 4 &&
+    // update limit
+    setLimit(limit - 1);
+
+    // update local storage limit
+    localStorage.setItem("nominationLimit", limit - 1);
+
+    nominations.length === 5 &&
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -59,11 +74,18 @@ function App() {
       (item) => item.imdbID !== movie.imdbID
     );
 
+    // update local storage
     setNominations(currentNominations);
     localStorage.setItem(
       "shoppiesNominations",
       JSON.stringify(currentNominations)
     );
+
+    // update limit
+    setLimit(limit + 1);
+
+    // update local storage limit
+    localStorage.setItem("nominationLimit", limit + 1);
   };
 
   return (
@@ -71,15 +93,16 @@ function App() {
       <Header
         mobileSidebar={mobileSidebar}
         toggleMobileSidebar={toggleMobileSidebar}
+        limit={limit}
       />
-      <div className='main-wrapper' ref={top}>
+      <div className='main-wrapper'>
         <div className='main-wrapper__inner'>
           <main>
             {nominations.length === 5 && (
               <div className='banner' role='banner'>
+                <i className='fas fa-exclamation-circle'></i>
                 <p>
-                  You've nominated five movies for the shoppies awards! You
-                  rock!
+                  You've used up your nominations, Thanks!
                 </p>
               </div>
             )}
@@ -115,6 +138,7 @@ function App() {
                   movieData={movie}
                   nominateMovie={nominateMovie}
                   nominations={nominations}
+                  limit={limit}
                 />
               ))}
             </div>
@@ -126,6 +150,9 @@ function App() {
             }`}
           >
             <h3 className='nominations__heading'>Your Nominations</h3>
+            <p className='nominations__limit'>
+              You have <strong>{limit} Nominations</strong> Remaining
+            </p>
 
             {nominations.length === 0 && (
               <div className='nominations__empty'>
