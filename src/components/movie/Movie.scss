@@ -69,15 +69,17 @@
 
   .nominate-button.movie-btn {
     &:hover {
-      animation: up 0.5s 1;
+      @media screen and (min-width: 768px) {
+        animation: up 0.5s 1;
 
-      @keyframes up {
-        50% {
-          transform: translateY(5px);
-        }
+        @keyframes up {
+          50% {
+            transform: translateY(5px);
+          }
 
-        100% {
-          transform: translateY(0);
+          100% {
+            transform: translateY(0);
+          }
         }
       }
     }

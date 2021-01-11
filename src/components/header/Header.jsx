@@ -16,7 +16,6 @@ function Header({ mobileSidebar, toggleMobileSidebar }) {
 
       <div className='icons'>
         <button className='icons__single icons_single--nominations-toggle' onClick={handleToggle}>
-          {/* <p>Nominees</p> */}
           <i className="fas fa-list-ul"></i>
         </button>
       </div>

@@ -1,4 +1,4 @@
-@import "config";
+@import "reset";
 @import "variables";
 
 /*
@@ -143,9 +143,6 @@ main {
 
       @media screen and (min-width: 768px) {
         transform: translateX(0);
-        // width: 0;
-        // padding: 0;
-        // transition: width 0.2s linear;
         background-color: transparent;
 
         transition: none;
