@@ -2,7 +2,7 @@
 
 //styling for movie component
 
-.movie {
+.movie-card {
   display: flex;
   flex-direction: column;
   color: $white;
@@ -22,7 +22,7 @@
     }
   }
 
-  .movie__details {
+  .__details {
     &__title {
       margin: 1rem 0 0.5rem;
       font-weight: 500;

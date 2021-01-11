@@ -27,13 +27,13 @@ header {
     font-size: 1.5rem;
   }
 
-  .icons {
+  nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .icons__single {
+  .sidebar__toggle__button {
     all: unset;
     display: flex;
     align-items: center;
@@ -46,7 +46,7 @@ header {
   }
 
   @media screen and (min-width: 768px) {
-    .icons_single--nominations-toggle {
+    .sidebar__toggle__button {
       display: none
     }
   }
