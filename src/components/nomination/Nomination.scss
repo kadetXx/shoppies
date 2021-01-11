@@ -7,11 +7,11 @@
   align-items: flex-start;
   margin-bottom: 3rem;
 
-  &__image {
+  .movie-card__image {
     width: 30%;
   }
 
-  &__details {
+  .movie-card__details {
     width: 68%;
 
     &__title {

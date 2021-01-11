@@ -4,7 +4,7 @@ import "./Nomination.scss";
 function Nomination({ movieData, undoNomination }) {
   return (
     <article className='movie-card nomination-card'>
-      <div className='movie__image'>
+      <div className='movie-card__image'>
         <img
           src={
             movieData.Poster === "N/A"
