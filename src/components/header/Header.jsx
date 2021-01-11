@@ -4,7 +4,7 @@ import "./Header.scss";
 function Header({ mobileSidebar, toggleMobileSidebar }) {
   const handleToggle = () => {
     toggleMobileSidebar(!mobileSidebar);
-  }
+  };
 
   return (
     <header>
@@ -14,11 +14,14 @@ function Header({ mobileSidebar, toggleMobileSidebar }) {
         </a>
       </h1>
 
-      <div className='icons'>
-        <button className='icons__single icons_single--nominations-toggle' onClick={handleToggle}>
-          <i className="fas fa-list-ul"></i>
+      <nav className='sidebar__toggle'>
+        <button
+          className='sidebar__toggle__button'
+          onClick={handleToggle}
+        >
+          <i className='fas fa-list-ul'></i>
         </button>
-      </div>
+      </nav>
     </header>
   );
 }

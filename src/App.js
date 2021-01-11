@@ -32,10 +32,7 @@ function App() {
     setSearchTerm(e.target.value);
 
     if (e.target.value.length >= 3) {
-      console.log(searchTerm.length);
-      fetch(
-        `https://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=${process.env.REACT_APP_API_KEY}`
-      )
+      fetch(`https://www.omdbapi.com/?s=${e.target.value}&page=1-10&apikey=${process.env.REACT_APP_API_KEY}`)
         .then((res) => res.json())
         .then((data) => setMovies(data.Search || []));
     } else {
@@ -75,14 +72,14 @@ function App() {
         mobileSidebar={mobileSidebar}
         toggleMobileSidebar={toggleMobileSidebar}
       />
-      <main ref={top}>
-        <section className='movies'>
-          <div className='movies__section movies__section--listings'>
+      <div className='main-wrapper' ref={top}>
+        <div className='main-wrapper__inner'>
+          <main>
             {nominations.length === 5 && (
-              <div className='banner'>
+              <div className='banner' role='banner'>
                 <p>
                   You've nominated five movies for the shoppies awards! You
-                  rock!{" "}
+                  rock!
                 </p>
               </div>
             )}
@@ -91,6 +88,7 @@ function App() {
               <label>
                 <i className='fa fa-search'></i>
                 <input
+                  aria-label='Search movies'
                   autoComplete='off'
                   type='text'
                   name='search'
@@ -110,7 +108,7 @@ function App() {
               </div>
             )}
 
-            <div className='movies__section__listing'>
+            <div className='movies__listing'>
               {movies.map((movie) => (
                 <Movie
                   key={movie.imdbID}
@@ -120,27 +118,23 @@ function App() {
                 />
               ))}
             </div>
-          </div>
+          </main>
 
-          <div
-            className={`movies__section movies__section--nominations ${
-              mobileSidebar
-                ? "movies__section--nominations--show"
-                : "movies__section--nominations--hide"
+          <aside
+            className={`nominations ${
+              mobileSidebar ? "show-sidebar" : "hide-sidebar"
             }`}
           >
-            <h3 className='movies__section--nominations__title'>
-              Your Nominations
-            </h3>
+            <h3 className='nominations__heading'>Your Nominations</h3>
 
             {nominations.length === 0 && (
-              <div className='movies__section--nominations__empty'>
-                <i class='fas fa-ghost'></i>
+              <div className='nominations__empty'>
+                <i className='fas fa-ghost'></i>
                 <p>Empty!</p>
               </div>
             )}
 
-            <div className='movies__section__listing'>
+            <div className='nominations__listing'>
               {nominations.map((movie) => (
                 <Nomination
                   key={movie.imdbID}
@@ -149,11 +143,10 @@ function App() {
                 />
               ))}
             </div>
-          </div>
-        </section>
-
-        <Footer />
-      </main>
+          </aside>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -21,27 +21,34 @@ function Movie({ movieData, nominateMovie, nominations }) {
   };
 
   return (
-    <article className='movie'>
-      <div className='movie__image'>
-        <img src={movieData.Poster} alt={movieData.Title} />
+    <article className='movie-card'>
+      <div className='movie-card__image'>
+        <img
+          src={
+            movieData.Poster === "N/A"
+              ? `https://via.placeholder.com/300x424?text=${movieData.Title}`
+              : movieData.Poster
+          }
+          alt={`Poster for ${movieData.Title}`}
+        />
       </div>
-      <div className='movie__details'>
-        <h4 className='movie__details__title'> {movieData.Title} </h4>
-        <p className='movie__details__release-year'>
-          <span>Released:</span> <i>{movieData.Year} </i>
+      <div className='movie-card__details'>
+        <h4 className='movie-card__details__title'> {movieData.Title} </h4>
+        <p className='movie-card__details__release-year'>
+          <span>Released:</span> <em>{movieData.Year} </em>
         </p>
         <button
+          aria-label='Nominate movie'
+          disabled={checkNominationStatus()}
           className={getButtonClass()}
           onClick={() => nominateMovie(movieData)}
         >
           {checkNominationStatus() ? (
             <React.Fragment>
-              Nominated <i class='far fa-check-circle'></i>
+              Nominated <i className='far fa-check-circle'></i>
             </React.Fragment>
           ) : (
-            <React.Fragment>
-              Nominate 
-            </React.Fragment>
+            <React.Fragment>Nominate</React.Fragment>
           )}
         </button>
       </div>

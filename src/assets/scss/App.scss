@@ -7,146 +7,149 @@ Styling for main component
 
 */
 
-main {
+.main-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+}
 
-  .movies {
+.main-wrapper__inner {
+  display: flex;
+  justify-content: space-between;
+
+  .banner {
     display: flex;
-    justify-content: space-between;
+    background: url("../img/celebrate.gif");
+    padding: 1rem 0;
+    margin: 2rem 0;
+    font-size: 1.2rem;
 
-    .banner {
-      display: flex;
-      background: url("../img/celebrate.gif");
-      padding: 1rem 0;
-      margin: 2rem 0;
-      font-size: 1.2rem;
+    @media screen and (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
 
-      @media screen and (min-width: 768px) {
-        font-size: 1.5rem;
-      }
+  main {
+    width: 100%;
+    padding: 1rem 4%;
+
+    @media screen and (min-width: 768px) {
+      flex-grow: 1;
+      border-right: 1px solid $outlinedark;
     }
 
-    &__section--listings {
-      width: 100%;
-      padding: 1rem 4%;
+    form {
+      margin-bottom: 2rem;
+    }
 
-      @media screen and (min-width: 768px) {
-        flex-grow: 1;
-        border-right: 1px solid $outlinedark;
-      }
+    label {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      box-sizing: border-box;
+      border: 1px solid $outlinemedium;
+    }
 
-      form {
-        margin-bottom: 2rem;
-      }
+    i {
+      color: #adadad;
+      margin-right: 1rem;
+    }
 
-      label {
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-        box-sizing: border-box;
-        border: 1px solid $outlinemedium;
-      }
-
-      i {
-        color: #adadad;
-        margin-right: 1rem;
-      }
-
-      input {
-        flex-grow: 1;
-        height: 100%;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        color: $white;
-        font-size: 16px;
-      }
+    input {
+      flex-grow: 1;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: $white;
+      font-size: 16px;
     }
 
     .stats {
       margin-bottom: 2rem;
-
+  
       span {
         color: $primary;
       }
     }
-
-    &__section__listing {
+  
+    .movies__listing {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
     }
+  }
 
-    &__section--nominations {
-      position: fixed;
-      height: calc(100vh - 70px);
-      overflow-y: auto;
-      left: 0;
-      background-color: $black;
-      width: 100%;
-      min-height: 100%;
-      padding: 1rem 4% 10rem;
-      transform: translateX(101vw);
-      box-sizing: border-box;
+  
 
-      @media screen and (min-width: 768px) {
-        width: 40%;
-        position: static;
-        height: auto;
-      }
+  aside {
+    position: fixed;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    left: 0;
+    background-color: $black;
+    width: 100%;
+    min-height: 100%;
+    padding: 1rem 4% 10rem;
+    transform: translateX(101vw);
+    box-sizing: border-box;
 
-      &__title {
-        margin-bottom: 2rem;
-      }
-
-      &__empty {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 4rem;
-
-        i {
-          font-size: 10rem;
-          opacity: 0.5;
-          color: lighten($color: $outlinedark, $amount: 20);
-        }
-
-        p {
-          color: lighten($color: $outlinedark, $amount: 20);
-          text-align: center;
-        }
-      }
+    @media screen and (min-width: 768px) {
+      width: 40%;
+      position: static;
+      height: auto;
     }
 
-    &__section--nominations--show {
-      transform: translateX(0);
-      transition: all 0.5s linear;
-
-      @media screen and (min-width: 768px) {
-        transform: translateX(0);
-        width: 40%;
-        background: transparent;
-        transition: width 0.2s linear;
-
-        transition: none;
-      }
+    .nominations__heading {
+      margin-bottom: 2rem;
     }
 
-    &__section--nominations--hide {
-      transform: translateX(101vw);
-      transition: transform 0.5s linear;
+    .nominations__empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4rem;
 
-      @media screen and (min-width: 768px) {
-        transform: translateX(0);
-        background-color: transparent;
+      i {
+        font-size: 10rem;
+        opacity: 0.5;
+        color: lighten($color: $outlinedark, $amount: 20);
+      }
 
-        transition: none;
+      p {
+        color: lighten($color: $outlinedark, $amount: 20);
+        text-align: center;
       }
     }
   }
+
+  aside.show-sidebar {
+    transform: translateX(0);
+    transition: all 0.5s linear;
+
+    @media screen and (min-width: 768px) {
+      transform: translateX(0);
+      width: 40%;
+      background: transparent;
+      transition: width 0.2s linear;
+
+      transition: none;
+    }
+  }
+
+  aside.hide-sidebar {
+    transform: translateX(101vw);
+    transition: transform 0.5s linear;
+
+    @media screen and (min-width: 768px) {
+      transform: translateX(0);
+      background-color: transparent;
+
+      transition: none;
+    }
+  }
+
 }

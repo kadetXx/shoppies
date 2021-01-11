@@ -1,17 +1,17 @@
 @import "../../assets/scss/variables.scss";
 
-.movie.nomination {
+.nomination-card {
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-bottom: 3rem;
 
-  .movie__image {
+  .movie-card__image {
     width: 30%;
   }
 
-  .movie__details {
+  .movie-card__details {
     width: 68%;
 
     &__title {
