@@ -2,6 +2,8 @@
 
 Shoppies is a one page movie nominations app for the upcoming shoppies awards. \Submitting this project is a requirement for the shopify frontend.UX internship application process.
 
+Link to hosted site on netlify: [shoppiesawards.netlify.app](https://shoppiesawards.netlify.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
