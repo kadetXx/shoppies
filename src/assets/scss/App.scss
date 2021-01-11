@@ -113,11 +113,11 @@ main {
         i {
           font-size: 10rem;
           opacity: 0.5;
-          color: $outlinedark;
+          color: lighten($color: $outlinedark, $amount: 20);
         }
 
         p {
-          color: lighten($color: $outlinedark, $amount: 5);
+          color: lighten($color: $outlinedark, $amount: 20);
           text-align: center;
         }
       }
