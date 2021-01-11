@@ -14,7 +14,7 @@ function Header({ mobileSidebar, toggleMobileSidebar }) {
         </a>
       </h1>
 
-      <nav className='sidebar__toggle'>
+      <nav className='sidebar__toggle' role="navigation">
         <button
           className='sidebar__toggle__button'
           onClick={handleToggle}
