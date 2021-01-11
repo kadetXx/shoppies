@@ -1,7 +1,7 @@
 import React from "react";
 import "./Movie.scss";
 
-function Movie({ movieData, nominateMovie, nominations }) {
+function Movie({ movieData, nominateMovie, nominations, limit }) {
   const checkNominationStatus = () => {
     const isNominated = nominations.filter(
       (movie) => movie.imdbID === movieData.imdbID
@@ -15,6 +15,8 @@ function Movie({ movieData, nominateMovie, nominations }) {
 
     if (check) {
       return "nominate-button movie-btn disabled";
+    } else if (limit === 0) {
+      return "nominate-button movie-btn disabled limit-maxed";
     } else {
       return "nominate-button movie-btn";
     }
@@ -47,6 +49,8 @@ function Movie({ movieData, nominateMovie, nominations }) {
             <React.Fragment>
               Nominated <i className='far fa-check-circle'></i>
             </React.Fragment>
+          ) : limit === 0 ? (
+            <React.Fragment>Limit Reached</React.Fragment>
           ) : (
             <React.Fragment>Nominate</React.Fragment>
           )}

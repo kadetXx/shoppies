@@ -21,7 +21,7 @@
 
   .nominate-button {
     background-color: transparent;
-    border: 1px solid lighten($color: $outlinemedium, $amount: 5);
+    border: 1px solid $primary;
 
     &:hover {
       border-color: $red;
